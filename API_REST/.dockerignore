@@ -1,0 +1,22 @@
+# Ignorar node_modules para no copiarlos al contenedor
+node_modules
+build
+# Ignorar archivos de logs
+*.log
+
+# Ignorar directorios de depuración o temporales
+temp/
+debug/
+.DS_Store
+
+# Ignorar configuraciones locales de IDE/editores
+.vscode/
+.idea/
+
+# Ignorar archivos de Git
+.git
+.gitignore
+
+# Ignorar configuraciones de Docker locales
+.dockerignore
+Dockerfile*

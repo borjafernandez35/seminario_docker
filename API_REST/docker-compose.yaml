@@ -1,0 +1,37 @@
+version: '3.3'
+
+services:
+  # Servicio para la aplicación backend
+  backend:
+    container_name: backend
+    image: borjafer/backend:3.0
+    ports:
+      - "3000:3000" # Expone el puerto 3000 del contenedor al puerto 3000 del host
+    depends_on:
+      - mongodb # Asegura que MongoDB se inicie antes que el backend
+    
+
+   
+
+  # Servicio para MongoDB
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017" # Expone el puerto 27017 de MongoDB
+    volumes:
+      - mongodb_data:/data/db # Guarda los datos en un volumen persistente
+
+  frontend:
+    container_name: frontend
+    image: borjafer/frontend:3.1
+    restart: always
+    depends_on:
+      - backend
+    ports:
+      - 8080:80
+   
+
+# Volúmenes para mantener las datos de MongoDB
+volumes:
+  mongodb_data:

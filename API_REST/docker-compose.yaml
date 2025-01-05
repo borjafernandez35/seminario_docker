@@ -4,7 +4,7 @@ services:
   # Servicio para la aplicación backend
   backend:
     container_name: backend
-    image: borjafer/backend:3.0
+    image: borjafer/seminariodockerbackend
     ports:
       - "3000:3000" # Expone el puerto 3000 del contenedor al puerto 3000 del host
     depends_on:
@@ -24,7 +24,7 @@ services:
 
   frontend:
     container_name: frontend
-    image: borjafer/frontend:3.1
+    image: borjafer/seminariodockerfrontend
     restart: always
     depends_on:
       - backend
